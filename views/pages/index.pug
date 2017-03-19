@@ -1,0 +1,79 @@
+extends ../layout
+
+block content1
+	link(href='/css/swiper.min.css', rel='stylesheet')
+	link(href='/css/book.css', rel='stylesheet')
+
+block content2
+	.container
+		.ad
+			a(href='/ad')
+		.book
+			.book-lead
+				a.book-lead-column(href='/column')
+					span 专栏&nbsp;›
+				a.book-lead-serial(href='/serial')
+					span 连载&nbsp;›
+			.book-content.swiper-container
+				.book-con-title
+					a(href='/new')
+						strong 新上架
+						span
+				.book-con-list.swiper-wrapper
+					each book in booksNew
+						.list-slide.swiper-slide
+							a(href='/detail/'+book.id)
+								img.list-slide-cover(src=book.cover)
+								.list-slide-summary
+									span.summary-title: strong #{book.title} <br>
+									span.summary-author #{book.author} <br>
+									span.summary-price ¥#{book.value}
+				.swiper-scrollbar(style='height: 10px;')
+			.book-content.swiper-container
+				.book-con-title
+					a(href='/new')
+						strong 热门
+						span
+				.book-con-list.swiper-wrapper
+					each book in booksHot
+						.list-slide.swiper-slide
+							a(href='/detail/'+book.id)
+								img.list-slide-cover(src=book.cover)
+								.list-slide-summary
+									span.summary-title: strong #{book.title} <br>
+									span.summary-author #{book.author} <br>
+									span.summary-price ¥#{book.value}
+				.swiper-scrollbar(style='height: 10px;')
+			.book-content.swiper-container
+				.book-con-title
+					a(href='/new')
+						strong 画册
+						span
+				.book-con-list.swiper-wrapper
+					each book in booksDraw
+						.list-slide.swiper-slide
+							a(href='/detail/'+book.id)
+								img.list-slide-cover(src=book.cover)
+								.list-slide-summary
+									span.summary-title: strong #{book.title} <br>
+									span.summary-author #{book.author} <br>
+									span.summary-price ¥#{book.value}
+				.swiper-scrollbar(style='height: 10px;')
+			.book-content.swiper-container
+				.book-con-title
+					a(href='/new')
+						strong 免费
+						span
+				.book-con-list.swiper-wrapper
+					each book in booksFree
+						.list-slide.swiper-slide
+							a(href='/detail/'+book.id)
+								img.list-slide-cover(src=book.cover)
+								.list-slide-summary
+									span.summary-title: strong #{book.title} <br>
+									span.summary-author #{book.author} <br>
+									span.summary-price 免费
+				.swiper-scrollbar(style='height: 10px;')
+
+	script(src='/js/swiper.min.js')
+	script(src='/js/control.js')

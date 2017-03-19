@@ -1,0 +1,17 @@
+extends ../layout
+
+block content1
+	link(href='/css/book.css', rel='stylesheet')
+
+block content2
+	.container
+		if title == '登录界面'
+			form.signin(method='post' action='/user/signin/in')
+				input(type='text' name='user[username]' placeholder=' 邮箱/手机号/用户名')
+				input(type='password' name='user[password]' placeholder=' 密码')
+				input.submit(type='submit' value='登录')
+		if title == '注册界面'
+			form.signin(method='post' action='/user/signup/add')
+				input(type='text' name='user[username]' placeholder=' 邮箱/手机号/用户名')
+				input(type='password' name='user[password]' placeholder=' 密码')
+				input.submit(type='submit' value='注册')

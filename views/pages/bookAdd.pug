@@ -1,0 +1,134 @@
+extends ../layout
+
+block content1
+	link(href='/css/book.css', rel='stylesheet')
+
+block content2
+	.container
+		if book.id
+			form.bookAdd(method='post', action='/admin/bookup')
+				.bookAdd-span
+					span #{title}
+					input(type='hidden' name='book[id]' value=book.id)
+				.bookAdd-box
+					.box-title 标题
+					.box-content
+						input(name='book[title]' value=book.title)
+				.bookAdd-box
+					.box-title 评分
+					.box-content
+						input(name='book[score]' value=book.score)
+				.bookAdd-box
+					.box-title 作者
+					.box-content
+						input(name='book[author]' value=book.author)
+				.bookAdd-box
+					.box-title 类型
+					.box-content
+						input(name='book[type]' value=book.type)
+				.bookAdd-box
+					.box-title 发行时间
+					.box-content
+						input(name='book[timepub]' value=book.timepub)
+				.bookAdd-box
+					.box-title 本书长度
+					.box-content
+						input(name='book[length]' value=book.length)
+				.bookAdd-box
+					.box-title 价格
+					.box-content
+						input(name='book[value]' value=book.value)
+				.bookAdd-box
+					.box-title 简介
+					.box-content
+						input(name='book[summary]' value=book.summary)
+				.bookAdd-box
+					.box-title 目录
+					.box-content
+						input(name='book[list]' value=book.list)
+				.bookAdd-box
+					.box-title 标签
+					.box-content
+						input(name='book[tag]' value=book.tag)
+				.bookAdd-box
+					.box-title 提供方
+					.box-content
+						input(name='book[provider]' value=book.provider)
+				.bookAdd-box
+					.box-title 评论
+					.box-content
+						input(name='book[comment]' value=book.comment)
+				.bookAdd-box
+					.box-title 评论数
+					.box-content
+						input(name='book[number]' value=book.number)
+				.bookAdd-box
+					.box-title 封面
+					.box-content
+						input(name='book[cover]' value=book.cover)
+				.bookAdd-box
+					input.submit(type='submit')
+		else
+			form.bookAdd(method='post', action='/admin/book')
+				.bookAdd-span
+					span #{title}
+					input(type='hidden' name='book[id]' value=book.id)
+				.bookAdd-box
+					.box-title 标题
+					.box-content
+						input(name='book[title]' value=book.title)
+				.bookAdd-box
+					.box-title 评分
+					.box-content
+						input(name='book[score]' value=book.score)
+				.bookAdd-box
+					.box-title 作者
+					.box-content
+						input(name='book[author]' value=book.author)
+				.bookAdd-box
+					.box-title 类型
+					.box-content
+						input(name='book[type]' value=book.type)
+				.bookAdd-box
+					.box-title 发行时间
+					.box-content
+						input(name='book[timepub]' value=book.timepub)
+				.bookAdd-box
+					.box-title 本书长度
+					.box-content
+						input(name='book[length]' value=book.length)
+				.bookAdd-box
+					.box-title 价格
+					.box-content
+						input(name='book[value]' value=book.value)
+				.bookAdd-box
+					.box-title 简介
+					.box-content
+						input(name='book[summary]' value=book.summary)
+				.bookAdd-box
+					.box-title 目录
+					.box-content
+						input(name='book[list]' value=book.list)
+				.bookAdd-box
+					.box-title 标签
+					.box-content
+						input(name='book[tag]' value=book.tag)
+				.bookAdd-box
+					.box-title 提供方
+					.box-content
+						input(name='book[provider]' value=book.provider)
+				.bookAdd-box
+					.box-title 评论
+					.box-content
+						input(name='book[comment]' value=book.comment)
+				.bookAdd-box
+					.box-title 评论数
+					.box-content
+						input(name='book[number]' value=book.number)
+				.bookAdd-box
+					.box-title 封面
+					.box-content
+						input(name='book[cover]' value=book.cover)
+				.bookAdd-box
+					input.submit(type='submit')
+				

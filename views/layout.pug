@@ -1,0 +1,38 @@
+doctype html
+html
+	head
+		meta(charset='utf-8')
+		meta(name='viewport' content="width=device-width,initial-scale=1,user-scalable=no")
+		title #{title}
+		block content1
+	body
+		.header
+			.header-icon
+				a.header-icon-left(href='/')
+				a.header-icon-right(href='javascript:;')
+					span
+			.header-func
+				a.header-func-search(href='/search')
+				if global.username == 'undefined'
+					a.header-func-user(href='/user')
+				else
+					a.header-func-psl #{global.username}
+						.psl-hidden 退出
+
+		block content2
+
+		
+		.footer
+			.footer-type
+				a.active 手机版
+				a.normal 网页版
+			.footer-info @2005-2017 douban.com
+		.download
+			.download-bgp
+			.download-describe
+				strong 豆瓣阅读 App
+				<br>
+				span 走在印刷机之前
+			.download-font 立即下载
+
+		script(src='/js/user.js')

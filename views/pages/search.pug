@@ -1,0 +1,18 @@
+extends ../layout
+
+block content1
+	link(href='/css/book.css', rel='stylesheet')
+
+block content2
+	.container
+		.search
+			.search-input
+				.search-input-bg
+				//- 这个placeholder可能存在浏览器兼容问题
+				input#con(type='text' placeholder='作品/电子书/专刊/连载/作者' name='val')
+				.search-input-icon#input
+			.search-content
+				.search-content-none 没有搜索结果，试试其他关键词吧
+				.search-content-pad
+
+	script(src='/js/search.js')

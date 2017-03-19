@@ -1,0 +1,96 @@
+extends ../layout
+
+block content1
+	link(href='/css/book.css', rel='stylesheet')
+
+block content2
+	.container
+		.detail
+			.detail-header
+				.detail-box
+					.detail-title #{book.title}
+					.detail-score 
+						- var starNum = Math.ceil(book.score/2)
+						.detail-red-stars(style='width: '+starNum*20+'px;')
+						.detail-white-stars(style='width: '+(5-starNum)*20+'px;')
+						.detail-score-num
+							if book.score == 0
+								span &nbsp;&nbsp;#{book.score}.0
+							else
+								span &nbsp;&nbsp;#{book.score}
+							| &nbsp;(#{book.number}人评论)
+					.detail-author #{book.author}
+					.detail-type #{book.type}
+					.detail-time #{book.timepub}
+					.detail-length #{book.length}
+					img.detail-cover(src='../'+book.cover)
+					.detail-func
+						.detail-func-read 阅读
+						.detail-func-share
+			.detail-mid
+				.detail-box
+					.detail-value ¥#{book.value}
+					.detail-icon
+						.detail-icon-send 赠送
+						.detail-icon-buy 购买
+			.detail-content
+				.detail-summary
+					.detail-summary-head 简介
+					.detail-summary-con
+						-var str = book.summary;var arr = str.split('<br>')
+						-var len = arr.length
+						each a, index in arr
+							span #{a}
+							if index != len-1
+								<br><br>
+					.detail-summary-icon
+				.detail-line
+				.detail-list
+					.detail-list-head 目录
+					ul.detail-list-con
+						-var str = book.list;var arr = str.split(',')
+						each a in arr
+							li
+								span &nbsp;•&nbsp;&nbsp;
+								| #{a}
+				.detail-line
+				.detail-tag
+					.detail-tag-head 标签
+					.detail-tag-con
+						-var str = book.tag;var arr = str.split(',')
+						each a in arr
+							span #{a}
+				.detail-line
+				.detail-pro
+					.detail-pro-head 出版方
+					.detail-pro-con
+						-var str = book.provider;var arr = str.split(',')
+						.pro-con-head
+							img(src=arr[0])
+							span #{arr[1]}
+						.pro-con-foot 
+							span #{arr[2]}
+						.pro-con-more 
+							a 共 300 部
+				.detail-line
+				.detail-comment
+					.detail-comment-head 读者评论
+					.detail-comment-con
+						if !book.comment
+							.comment-none 还没有读者评论
+						else
+							.comment-box
+
+	script(src='/js/detail.js')
+
+
+
+
+
+
+
+
+
+		// - var str = book.list;var arr = str.split(',')
+		// each a in arr
+		// 	h6= a

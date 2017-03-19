@@ -1,0 +1,26 @@
+extends ../layout
+
+block content1
+	link(href='/css/book.css', rel='stylesheet')
+
+block content2
+	.container
+		.bookList
+			.bookList-span #{title}
+			table.bookList-box
+				thead
+					tr
+						th id
+						th 标题
+						th 更新
+						th 删除
+				tbody
+					each book in books
+						tr
+							td= book.id
+							td.title= book.title
+							td: a(href='/admin/book/update?id='+book.id) 更新
+							td: a.bookListDel 删除
+
+	script(src='/js/bookListDel.js')
+

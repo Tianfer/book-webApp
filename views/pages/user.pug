@@ -1,0 +1,10 @@
+extends ../layout
+
+block content1
+	link(href='/css/book.css', rel='stylesheet')
+
+block content2
+	.container
+		.user
+			a.user-signin(href='/user/signin') 登录
+			a.user-signup(href='/user/signup') 注册
